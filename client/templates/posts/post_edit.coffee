@@ -14,9 +14,9 @@ Template.postEdit.events
       else
         Router.go 'postPage', _id: id
 
-  'click delete': (e) ->
+  'click .delete': (e) ->
     e.preventDefault()
 
     if confirm 'Delete this post?'
-      Post.remove @_id
+      Posts.remove @_id
       Router.go 'postsList'
