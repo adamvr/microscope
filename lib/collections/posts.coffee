@@ -1,5 +1,11 @@
 @Posts = Posts = new Mongo.Collection 'posts'
 
+Posts.allow
+  update: (userId, doc) ->
+    ownsDocument userId, doc
+  remove: (userId, doc) ->
+    ownsDocument userId, doc
+
 Meteor.methods
   postInsert: (postAttrs) ->
     # Make sure we're logged in
