@@ -11,3 +11,5 @@ mizzao:bootstrap-3
 iron:router
 coffeescript
 sacha:spin
+ian:accounts-ui-bootstrap-3
+accounts-password
