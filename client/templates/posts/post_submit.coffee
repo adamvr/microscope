@@ -15,3 +15,13 @@ Template.postSubmit.events
 
       # Route to post page
       Router.go 'postPage', result
+
+Template.postSubmit.created = ->
+  Session.set 'postSubmitErrors', {}
+
+Template.postSubmit.helpers
+  errorMessage: (field) ->
+    (Session.get 'postSubmitErrors')[field]
+
+  errorClass: (field) ->
+    !!(Session.get 'postSubmitErrors')[field] ? 'has-error' : ''
