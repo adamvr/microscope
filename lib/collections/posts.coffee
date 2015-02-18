@@ -6,6 +6,10 @@ Posts.allow
   remove: (userId, doc) ->
     ownsDocument userId, doc
 
+Posts.deny
+  update: (userId, doc, fieldNames) ->
+    (_.without fieldNames, 'url', 'title').length > 0
+
 Meteor.methods
   postInsert: (postAttrs) ->
     # Make sure we're logged in
