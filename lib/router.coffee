@@ -16,7 +16,10 @@ Router.route '/submit',
 
 requireLogin = ->
   if !Meteor.user()
-    @render 'accessDenied'
+    if Meteor.loggingIn()
+      @render @loadingTemplate
+    else
+      @render 'accessDenied'
   else
     @next()
 
