@@ -7,5 +7,11 @@ Template.postSubmit.events
       title: $(e.target).find('[name="title"]').val()
 
     Meteor.call 'postInsert', post, (err, result) ->
-      if err return alert err.reason
-      Router.go 'postPage', result._id
+      # Report error if post invalid
+      return alert err.reason if err
+
+      # Report that the post has already been created
+      alert 'This link has already been posted' if result.postExists
+
+      # Route to post page
+      Router.go 'postPage', result
