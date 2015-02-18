@@ -11,4 +11,7 @@ Router.route '/posts/:_id',
   data: ->
     Posts.findOne @params._id
 
+Router.route '/submit',
+  name: 'postSubmit'
+
 Router.onBeforeAction 'dataNotFound', only: 'postPage'
