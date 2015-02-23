@@ -39,3 +39,14 @@ Meteor.methods
 
     # Pass the id of the created post back
     return _id: postId
+
+@validatePost = (post) ->
+  errors = {}
+
+  if (!post.title)
+    errors.title = 'Please fill in a headline'
+
+  if (!post.url)
+    errors.url = 'Please fill in a post url'
+
+  return errors;
