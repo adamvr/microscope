@@ -9,7 +9,7 @@ Template.postSubmit.events
     errors = validatePost post
 
     if _.keys(errors).length > 0
-      Session.set 'postSubmitErrors', errors
+      return Session.set 'postSubmitErrors', errors
 
     Meteor.call 'postInsert', post, (err, result) ->
       # Report error if post invalid
