@@ -21,7 +21,7 @@ Template.postSubmit.created = ->
 
 Template.postSubmit.helpers
   errorMessage: (field) ->
-    (Session.get 'postSubmitErrors')[field]
+    Session.get('postSubmitErrors')[field]
 
   errorClass: (field) ->
-    !!(Session.get 'postSubmitErrors')[field] ? 'has-error' : ''
+    if Session.get('postSubmitErrors')[field] then 'has-error' else ''
