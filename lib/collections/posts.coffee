@@ -20,6 +20,12 @@ Meteor.methods
       title: String,
       url: String
 
+    # Validate the post
+    errors = validatePost postAttrs
+
+    if _.keys(errors).length > 0
+      throw new Meteor.Error('invalid-post', 'You must set a title and a url for a post')
+
     # Make sure this url isn't alread submitted
     existing = Posts.findOne url: postAttrs.url
 
