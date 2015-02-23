@@ -40,7 +40,7 @@ Meteor.methods
 
     # Report that this post already exists, if necessary
     if existing
-      return _id: existing._id, postExits: true
+      return _id: existing._id, postExists: true
 
     # Create post document
     user = Meteor.user();
