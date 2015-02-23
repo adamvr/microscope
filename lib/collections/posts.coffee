@@ -1,15 +1,23 @@
 @Posts = Posts = new Mongo.Collection 'posts'
 
+# Only allow editing or removing of owned documents
 Posts.allow
   update: (userId, doc) ->
     ownsDocument userId, doc
   remove: (userId, doc) ->
     ownsDocument userId, doc
 
+# Disallow alterations to anything but url and title
+Posts.deny
+  update: (userId, doc, fieldNames) ->
+    _.without(fieldNames, 'url', 'title').length > 0
+
+# Disallow invalid updates
 Posts.deny
   update: (userId, doc, fieldNames) ->
     errors = validatePost doc
     _.keys(errors).length > 0
+
 
 Meteor.methods
   postInsert: (postAttrs) ->
