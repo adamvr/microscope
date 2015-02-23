@@ -25,3 +25,13 @@ Template.postEdit.events
     if confirm 'Delete this post?'
       Posts.remove @_id
       Router.go 'postsList'
+
+Template.postEdit.rendered = ->
+  Session.set 'postEditErrors', {}
+
+Template.postEdit.helpers
+  errorMessage: (field) ->
+    Session.get('postEditErrors')[field]
+
+  errorClass: (field) ->
+    if Session.get('postEditErrors')[field] then 'has-error' else ''
