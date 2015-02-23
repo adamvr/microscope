@@ -1,6 +1,6 @@
 Template.meteorErrors.helpers
   errors: ->
-    Errors.collection.find
+    Errors.collection.find()
 
 Template.meteorError.rendered = ->
   error = @data
