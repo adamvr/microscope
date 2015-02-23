@@ -19,8 +19,8 @@ Package.onUse(function (api, where) {
   }
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('adamvr:errors');
-  api.addFiles('adamvr:errors-tests.js');
+Package.onTest(function (api) {
+  api.use('adamvr:errors', 'client');
+  api.use(['tinytest', 'coffeescript', 'test-helpers'], 'client');
+  api.addFiles('errors-tests.coffee', 'client');
 });
