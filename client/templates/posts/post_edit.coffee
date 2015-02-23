@@ -8,6 +8,11 @@ Template.postEdit.events
       url: $(e.target).find('[name="url"]').val()
       title: $(e.target).find('[name="title"]').val()
 
+    errors = validatePost post
+
+    if _.keys(errors).length > 0
+      return Session.set 'postEditErrors', errors
+
     Posts.update id, $set: post, (err) ->
       if err
         throwError err.reason
