@@ -15,7 +15,7 @@ Template.postEdit.events
 
     Posts.update id, $set: post, (err) ->
       if err
-        throwError err.reason
+        Error.throw err.reason
       else
         Router.go 'postPage', _id: id
 
