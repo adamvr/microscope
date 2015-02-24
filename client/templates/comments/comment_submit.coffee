@@ -7,7 +7,7 @@ Template.commentSubmit.helpers
   errorMessage: (field) ->
     Session.get(errorsKey)[field]
 
-Template.commentSubmit.rendered = ->
+Template.commentSubmit.created = ->
   Session.set errorsKey, {}
 
 Template.commentSubmit.events
