@@ -1,16 +1,4 @@
 if Posts.find().count() is 0
-  Posts.insert
-    title: 'Introducing Microscope'
-    url: 'http://saschagreif.com/introducing-microscope'
-
-  Posts.insert
-    title: 'Meteor'
-    url: 'http://meteor.com'
-
-  Posts.insert
-    title: 'The Meteor Book'
-    url: 'http://themeteorbook.com'
-
   now = new Date().getTime()
 
   # Create dummy users
@@ -26,12 +14,19 @@ if Posts.find().count() is 0
 
   neuromancer = Meteor.users.findOne neuromancerId
 
+  icarusId = Meteor.users.insert
+    profile:
+      name: 'Icarus'
+
+  icarus = Meteor.users.findOne icarusId
+
   telescopeId = Posts.insert
     title: 'Introducting Telescope'
     url: 'http://saschagreif.com/introducing-telescope'
     userId: wintermute._id
     author: wintermute.profile.name
     submitted: new Date now - 7 * 3600 * 1000
+    commentsCount: 1
 
   Comments.insert
     postId: telescopeId
@@ -39,3 +34,27 @@ if Posts.find().count() is 0
     author: neuromancer.profile.name
     submitted: new Date now - 7 * 3600 * 1000
     body: 'Message'
+
+  Posts.insert
+    title: 'Introducing Microscope'
+    url: 'http://saschagreif.com/introducing-microscope'
+    userId: icarus._id
+    author: icarus.profile.name
+    submitted: new Date()
+    commentsCount: 0
+
+  Posts.insert
+    title: 'Meteor'
+    userId: wintermute._id
+    author: wintermute.profile.name
+    submitted: new Date()
+    url: 'http://meteor.com'
+    commentsCount: 0
+
+  Posts.insert
+    title: 'The Meteor Book'
+    url: 'http://themeteorbook.com'
+    userId: neuromancer._id
+    author: neuromancer.profile.name
+    submitted: new Date()
+    commentsCount: 0
