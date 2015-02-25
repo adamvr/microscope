@@ -20,4 +20,11 @@ Meteor.methods
 
     Posts.update post._id, $inc: commentsCount: 1
 
-    Comments.insert comment
+    # Save comments id
+    comment._id = Comments.insert comment
+
+    # Create notification
+    createCommentNotification comment
+
+    # Return newly created comment id
+    comment._id
