@@ -3,7 +3,7 @@
 Notifications.allow
   update: (userId, doc, fieldNames) ->
     # Only allow changes to the 'read' field
-    ownsDocument(doc) and fieldNames.length === 1 and fieldNames[0] === 'read'
+    ownsDocument(doc) and fieldNames.length is 1 and fieldNames[0] is 'read'
 
 @createCommentNotification = (comment) ->
   # Fetch appropriate post
