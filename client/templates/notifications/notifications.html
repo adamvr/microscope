@@ -20,7 +20,14 @@
 <template name="notificationItem">
   <li>
     <a href="{{notificationPostPath}}">
+      {{#if isComment}}
       <strong>{{commenterName}}</strong> commented on your post
+      {{/if}}
+
+      {{#if isPost}}
+      <strong>{{posterName}}</strong> made a new post
+      {{/if}}
+
       <span class="dismiss glyphicon glyphicon-remove"></span>
     </a>
   </li>
