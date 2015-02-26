@@ -11,7 +11,14 @@ Template.notifications.helpers
     .count()
 
 Template.notificationItem.events
-  'click a': ->
+  'click a': (e) ->
+    Notifications.update @_id, $set: read: true
+
+  'click .dismiss' (e) ->
+    # Prevent the link from working if we click here
+    e.preventDefault()
+    e.stopPropagation()
+
     Notifications.update @_id, $set: read: true
 
 Template.notificationItem.helpers
