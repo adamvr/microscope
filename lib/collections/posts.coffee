@@ -18,7 +18,6 @@ Posts.deny
     errors = validatePost doc
     _.keys(errors).length > 0
 
-
 Meteor.methods
   postInsert: (postAttrs) ->
     # Make sure we're logged in

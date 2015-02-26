@@ -17,3 +17,4 @@ Notifications.allow
       commentId: comment._id
       commenterName: comment.author
       read: false
+      type: 'comment'
