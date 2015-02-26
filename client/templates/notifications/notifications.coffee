@@ -14,7 +14,7 @@ Template.notificationItem.events
   'click a': (e) ->
     Notifications.update @_id, $set: read: true
 
-  'click .dismiss' (e) ->
+  'click .dismiss': (e) ->
     # Prevent the link from working if we click here
     e.preventDefault()
     e.stopPropagation()
