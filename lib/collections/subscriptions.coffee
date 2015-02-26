@@ -5,3 +5,5 @@ Subscriptions.allow
     ownsDocument(userId, doc)
   remove: (userId, doc, fields) ->
     ownsDocument(userId, doc)
+
+Subscriptions._ensureIndex {userId: 1, subscribedId: 1}, {unique: true}
