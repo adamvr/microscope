@@ -24,3 +24,9 @@ Template.notificationItem.events
 Template.notificationItem.helpers
   notificationPostPath: ->
     Router.routes.postPage.path _id: @postId
+
+  isComment: ->
+    @type is 'comment'
+
+  isPost: ->
+    @type is 'post'
