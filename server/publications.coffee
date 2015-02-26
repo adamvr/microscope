@@ -7,3 +7,6 @@ Meteor.publish 'comments', (postId) ->
 
 Meteor.publish 'notifications', ->
   Notifications.find userId: @userId, read: false
+
+Meteor.publish 'subscriptions', ->
+  Subscriptions.find userId: @userId
