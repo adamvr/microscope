@@ -130,6 +130,11 @@ body {
   white-space: nowrap;
 }
 
+.dropdown-menu .dismiss {
+  display: inline;
+  vertical-align: middle;
+}
+
 .load-more {
   display: block;
   -webkit-border-radius: 3px;
