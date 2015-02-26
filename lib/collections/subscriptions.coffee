@@ -6,4 +6,7 @@ Subscriptions.allow
   remove: (userId, doc, fields) ->
     ownsDocument(userId, doc)
 
-Subscriptions._ensureIndex {userId: 1, subscribedId: 1}, {unique: true}
+
+# Only try to ensureIndex on the server
+if Meteor.isServer
+  Subscriptions._ensureIndex {userId: 1, subscribedId: 1}, {unique: true}
