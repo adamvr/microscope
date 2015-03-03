@@ -1,0 +1,9 @@
+<template name="profile">
+  <h2>{{profile.name}}</h2>
+  <div class=".col-md-8">
+    <h3> Posts </h3>
+    {{#each posts}}
+      <a href="{{pathFor 'postPage'}}"> {{title}} </a>
+    {{/each}}
+  </div>
+</template>
