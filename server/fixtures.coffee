@@ -1,24 +1,16 @@
 if Posts.find().count() is 0
   now = new Date().getTime()
 
-  # Create dummy users
-  wintermuteId = Meteor.users.insert
-    profile:
-      name: 'Wintermute'
+  ['Wintermute', 'Neuromancer', 'Icarus', 'Helios'].forEach (x) ->
+    Meteor.users.insert
+      username: x
+      profile:
+        name: x
 
-  wintermute = Meteor.users.findOne wintermuteId
-
-  neuromancerId = Meteor.users.insert
-    profile:
-      name: 'Neuromancer'
-
-  neuromancer = Meteor.users.findOne neuromancerId
-
-  icarusId = Meteor.users.insert
-    profile:
-      name: 'Icarus'
-
-  icarus = Meteor.users.findOne icarusId
+  wintermute = Meteor.users.findOne username: 'Wintermute'
+  neuromancer = Meteor.users.findOne username: 'Neuromancer'
+  icarus = Meteor.users.findOne username: 'Icarus'
+  helios = Meteor.users.findOne username: 'Helios'
 
   telescopeId = Posts.insert
     title: 'Introducting Telescope'
