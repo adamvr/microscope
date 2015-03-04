@@ -9,7 +9,7 @@ Meteor.publish 'notifications', ->
   Notifications.find userId: @userId, read: false
 
 Meteor.publish 'subscriptions', ->
-  Subscriptions.find userId: @userId
+  Subscriptions.find subscriberId: @userId
 
 Meteor.publish 'userSubscriptions', (userId) ->
   Subscriptions.find userId: userId
