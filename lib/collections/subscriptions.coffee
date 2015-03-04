@@ -23,4 +23,4 @@ Subscriptions.allow
 
 # Only try to ensureIndex on the server
 if Meteor.isServer
-  Subscriptions._ensureIndex {userId: 1, subscribedId: 1}, {unique: true}
+  Subscriptions._ensureIndex {subscriberId: 1, subscribedId: 1}, {unique: true}
