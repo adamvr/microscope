@@ -59,16 +59,6 @@ if Posts.find().count() is 0
     submitted: new Date()
     commentsCount: 0
 
-  Subscriptions.insert
-    userId: neuromancer._id
-    subscribedId: wintermute._id
-    subscribedName: wintermute.profile.name
-    subscribedAt: new Date()
-    notify: ['post']
-
-  Subscriptions.insert
-    userId: wintermute._id
-    subscribedId: icarus._id
-    subscribedName: icarus.profile.name
-    subscribedAt: new Date()
-    notify: ['post']
+  createSubscription neuromancer, wintermute
+  createSubscription wintermute, icarus
+  createSubscription icarus, neuromancer
