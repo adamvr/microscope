@@ -41,5 +41,5 @@ requireLogin = ->
   else
     @next()
 
-Router.onBeforeAction 'dataNotFound', only: 'postPage'
+Router.onBeforeAction 'dataNotFound', only: ['postPage', 'profile']
 Router.onBeforeAction requireLogin, only: 'postSubmit'
