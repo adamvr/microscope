@@ -15,9 +15,9 @@ Subscriptions.allow
 
   Subscriptions.insert
     subscriberId: from._id
-    subscriberName: from.profile.name
+    subscriberName: from.profile.name || from.username
     subscribedId: to._id
-    subscribedName: to.profile.name
+    subscribedName: to.profile.name || to.username
     subscribedAt: new Date()
     notify: notify
 
