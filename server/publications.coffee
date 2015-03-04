@@ -10,3 +10,6 @@ Meteor.publish 'notifications', ->
 
 Meteor.publish 'subscriptions', ->
   Subscriptions.find userId: @userId
+
+Meteor.publish 'publicUsers', ->
+  Meteor.users.find {}, fields: profile: true
