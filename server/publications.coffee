@@ -12,7 +12,7 @@ Meteor.publish 'subscriptions', ->
   Subscriptions.find subscriberId: @userId
 
 Meteor.publish 'userSubscriptions', (userId) ->
-  Subscriptions.find userId: userId
+  Subscriptions.find subscriberId: userId
 
 Meteor.publish 'publicUsers', ->
   Meteor.users.find {}, fields: profile: true
