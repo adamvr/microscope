@@ -25,6 +25,13 @@ Router.route '/posts/:_id/edit',
   data: ->
     Posts.findOne @params._id
 
+Router.route '/profile/:_id',
+  name: 'profile'
+  waitOn: ->
+    Meteor.subscribe 'userSubscriptions', @params._id
+  data: ->
+    Meteor.users.findOne @params._id
+
 requireLogin = ->
   if !Meteor.user()
     if Meteor.loggingIn()
