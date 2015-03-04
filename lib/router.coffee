@@ -7,6 +7,7 @@ Router.configure
       Meteor.subscribe('posts'),
       Meteor.subscribe('notifications')
       Meteor.subscribe('subscriptions')
+      Meteor.subscribe('publicUsers')
     ]
 
 Router.route '/', name: 'postsList'
