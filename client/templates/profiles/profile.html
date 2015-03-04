@@ -12,6 +12,24 @@
             {{/each}}
           </ul>
         </div>
+        <div class="col-md-4">
+          <h5> Following ({{numFollowing}}) </h5>
+          <ul class="list-unstyled">
+            {{#each following}}
+              <li>
+                <a href="{{pathFor 'profile' _id=this.subscribedId}}">{{subscribedName}}</a>
+              </li>
+            {{/each}}
+          </ul>
+          <h5> Followed by ({{numFollowed}}) </h5>
+          <ul class="list-unstyled">
+            {{#each followedBy}}
+              <li>
+                <a href="{{pathFor 'profile' _id=this.subscriberId}}">{{subscriberName}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
