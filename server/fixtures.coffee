@@ -53,4 +53,6 @@ if Posts.find().count() is 0
 
   createSubscription neuromancer, wintermute
   createSubscription wintermute, icarus
-  createSubscription icarus, neuromancer
+  createSubscription icarus, helios
+  createSubscription helios, neuromancer
+  createSubscription helios, icarus
