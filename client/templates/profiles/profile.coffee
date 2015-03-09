@@ -2,6 +2,9 @@ Template.profile.helpers
   posts: ->
     Posts.find userId: @_id
 
+  numPosts: ->
+    Posts.find(userId: @_id).count().toString()
+
   following: ->
     Subscriptions.find subscriberId: @_id
 
