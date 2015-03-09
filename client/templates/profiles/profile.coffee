@@ -9,10 +9,10 @@ Template.profile.helpers
     Subscriptions.find subscriberId: @_id
 
   numFollowing: ->
-    Subscriptions.find(subscriberId: @_id).count()
+    Subscriptions.find(subscriberId: @_id).count().toString()
 
   followedBy: ->
     Subscriptions.find subscribedId: @_id
 
   numFollowed: ->
-    Subscriptions.find(subscribedId: @_id).count()
+    Subscriptions.find(subscribedId: @_id).count().toString()
