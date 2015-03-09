@@ -5,15 +5,20 @@
 
       <div class="row">
         <div class="col-md-6">
-          <h5> Posts </h5>
+          <h5> Posts ({{numPosts}}) </h5>
+          {{#if numPosts}}
           <ul class="list-unstyled">
             {{#each posts}}
               <li><a href="{{pathFor 'postPage'}}">{{title}}</a></li>
             {{/each}}
           </ul>
+          {{else}}
+            <p> Nothing posted yet </p>
+          {{/if}}
         </div>
         <div class="col-md-4">
           <h5> Following ({{numFollowing}}) </h5>
+          {{#if numFollowing}}
           <ul class="list-unstyled">
             {{#each following}}
               <li>
@@ -21,7 +26,11 @@
               </li>
             {{/each}}
           </ul>
+          {{else}}
+            <p> Not following anybody </p>
+          {{/if}}
           <h5> Followed by ({{numFollowed}}) </h5>
+          {{#if numFollowed}}
           <ul class="list-unstyled">
             {{#each followedBy}}
               <li>
@@ -29,6 +38,9 @@
               </li>
             {{/each}}
           </ul>
+          {{else}}
+            <p> Not followed by anybody </p>
+          {{/if}}
         </div>
       </div>
     </div>
