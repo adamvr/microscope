@@ -59,6 +59,6 @@ PostsController = RouteController.extend
     posts:
       Posts.find {}, @opts()
 
-Router.route '/:limit',
+Router.route '/:limit?',
   name: 'postsList'
   controller: PostsController
