@@ -48,7 +48,7 @@ PostsController = RouteController.extend
   template: 'postsList'
   increment: 5
   limit: ->
-    parseInt @params.limit or increment
+    parseInt @params.limit or @increment
   opts: ->
     sort:
       submitted: -1
