@@ -26,6 +26,13 @@
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li>
+              {{#with currentUser}}
+              <a href="{{pathFor 'profile'}}">Profile</a>
+              {{/with}}
+            </li>
+          {{/if}}
           {{> loginButtons}}
         </ul>
       </div>
