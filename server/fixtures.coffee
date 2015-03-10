@@ -12,6 +12,8 @@ if Posts.find().count() is 0
   icarus = Meteor.users.findOne username: 'Icarus'
   helios = Meteor.users.findOne username: 'Helios'
 
+  users = [wintermute, neuromancer, icarus, helios]
+
   telescopeId = Posts.insert
     title: 'Introducting Telescope'
     url: 'http://saschagreif.com/introducing-telescope'
@@ -50,6 +52,19 @@ if Posts.find().count() is 0
     author: neuromancer.profile.name
     submitted: new Date()
     commentsCount: 0
+
+
+  # Generate a whole load of crap
+  _.times 50, (n) ->
+    user = _.sample users
+
+    Posts.insert
+      title: "Test Article #{n}"
+      url: 'http://google.com'
+      userId: user._id
+      author: user.profile.name
+      submitted: new Date()
+      commentsCount: 0
 
   createSubscription neuromancer, wintermute
   createSubscription wintermute, icarus
