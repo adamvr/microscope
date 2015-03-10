@@ -3,16 +3,16 @@ Template.profile.helpers
     Posts.find userId: @_id
 
   numPosts: ->
-    Posts.find(userId: @_id).count().toString()
+    Posts.find(userId: @_id).count()
 
   following: ->
     Subscriptions.find subscriberId: @_id
 
   numFollowing: ->
-    Subscriptions.find(subscriberId: @_id).count().toString()
+    Subscriptions.find(subscriberId: @_id).count()
 
   followedBy: ->
     Subscriptions.find subscribedId: @_id
 
   numFollowed: ->
-    Subscriptions.find(subscribedId: @_id).count().toString()
+    Subscriptions.find(subscribedId: @_id).count()
