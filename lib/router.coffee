@@ -10,7 +10,6 @@ Router.configure
       Meteor.subscribe('publicUsers')
     ]
 
-Router.route '/', name: 'postsList'
 Router.route '/posts/:_id',
   name: 'postPage'
   waitOn: ->
@@ -44,3 +43,22 @@ requireLogin = ->
 
 Router.onBeforeAction 'dataNotFound', only: ['postPage', 'profile']
 Router.onBeforeAction requireLogin, only: 'postSubmit'
+
+PostsController = RouteController.extend
+  template: 'postsList'
+  increment: 5
+  limit: ->
+    parseInt @params.limit or increment
+  opts: ->
+    sort:
+      submitted: -1
+    limit: @limit()
+  waitOn: ->
+    Meteor.subscribe 'posts', @opts()
+  data: ->
+    posts:
+      Posts.find {}, @opts()
+
+Router.route '/:limit',
+  name: 'postsList'
+  controller: PostsController
