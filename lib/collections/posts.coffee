@@ -52,9 +52,6 @@ Meteor.methods
     # Save it
     postId = Posts.insert post
 
-    # Notify interested parties
-    createPostNotifications _.extend post, _id: postId
-
     # Pass the id of the created post back
     return _id: postId
 
