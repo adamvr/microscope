@@ -67,4 +67,4 @@ Meteor.methods
   if (!post.url)
     errors.url = 'Please fill in a post url'
 
-  return errors;
+  return errors
